@@ -26,3 +26,10 @@ FairMove AI allows users to paste job offer text and receive:
 1. Install Flask  
    ```bash
    pip install flask
+2. Run the app
+python app.py
+3. Open browser
+http://127.0.0.1:5000
+Disclaimer
+
+FairMove AI provides risk indicators based on common scam patterns. It does not replace legal or government verification. Users should always verify job offers through official sources.
