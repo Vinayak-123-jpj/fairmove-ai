@@ -1,64 +1,73 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
     <title>FairMove AI</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
 
-<div class="container">
+<div class="card">
     <h1>FairMove AI</h1>
-    <p class="subtitle">Open Innovation platform for overseas job safety</p>
+    <p class="subtitle">AI-powered overseas job scam detection</p>
 
-    <form method="POST">
-        <textarea name="text" placeholder="Paste overseas job offer text here..." required></textarea>
+    <form method="POST" enctype="multipart/form-data">
+        <textarea name="job_text" placeholder="Paste job offer or contract text here...">{{ history }}</textarea>
+        <p class="or">OR upload PDF</p>
+        <input type="file" name="pdf" accept=".pdf">
         <button type="submit">Analyze Offer</button>
     </form>
 
     {% if result %}
-    <div class="result-card">
+    <div class="result {{ result.color }}">
         <h2>{{ result.risk }}</h2>
-        <p><strong>Trust Score:</strong> {{ result.trust_score }}/100</p>
+
+        <div class="bar"><div class="fill" style="width: {{ result.score }}%"></div></div>
+        <p><strong>Trust Score:</strong> {{ result.score }}/100</p>
+
+        <p><strong>AI Recommendation:</strong> {{ result.advice }}</p>
+        <p><strong>Confidence:</strong> {{ result.confidence }}</p>
 
         <h3>Risk Breakdown</h3>
-        <p>💰 Financial Risk: {{ result.financial }}/30</p>
-        <p>📄 Visa Risk: {{ result.visa }}/40</p>
-        <p>🚨 Urgency Risk: {{ result.urgency }}/20</p>
-
-        {% if result.countries %}
-        <h3>🌍 Country Alert</h3>
-        <p>
-            This offer mentions {{ result.countries | join(", ") }}.
-            Overseas job fraud cases have been reported for this region.
-        </p>
-        {% endif %}
-
-        <h3>✅ Safety Checklist</h3>
         <ul>
-            {% for item in result.checklist %}
-            <li>{{ item }}</li>
-            {% endfor %}
+            <li>💰 Financial: {{ result.finance }}</li>
+            <li>🛂 Visa: {{ result.visa }}</li>
+            <li>⏰ Urgency: {{ result.urgency }}</li>
+            <li>🌍 Country: {{ result.country }}</li>
+            <li>🏢 Company: {{ result.company }}</li>
         </ul>
 
-        <h3>🤖 AI Recommendation</h3>
-        <p>{{ result.recommendation }}</p>
+        <h3>🧠 AI Explanation</h3>
+        <p>{{ result.explanation }}</p>
 
-        <p class="explanation">
-            <strong>How this works:</strong><br>
-            {{ result.explanation }}
-        </p>
+        {% if result.links %}
+        <h3>🔗 Official Verification Links</h3>
+        <ul>
+            {% for link in result.links %}
+            <li><a href="{{ link }}" target="_blank">{{ link }}</a></li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+
+        <h3>Highlighted Content</h3>
+        <div class="highlight-box">
+            {{ result.highlighted | safe }}
+        </div>
+
+        <div class="report-box">
+            <h3>🚨 Report a Scam</h3>
+            <a href="https://cybercrime.gov.in" target="_blank">Report on CyberCrime Portal (India)</a>
+        </div>
     </div>
     {% endif %}
 
-    <p class="disclaimer">
-        ⚠️ Disclaimer: FairMove AI provides decision support only. Always verify job
-        offers through official government or embassy sources.
+    <p class="footer">
+        ⚠️ FairMove AI provides automated risk indicators. Always verify with official sources.
     </p>
 </div>
 
 </body>
 </html>
+
 
 
 
