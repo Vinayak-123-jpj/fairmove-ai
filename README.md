@@ -1,35 +1,67 @@
-# FairMove AI
+# FairMove AI 🚀  
+AI-Powered Overseas Job Scam Detection
 
-FairMove AI is an AI-powered web application that helps users analyze overseas job offers and employment contracts to identify potential scam risks before making life-changing decisions.
+FairMove AI is a web-based tool that helps users verify overseas job offers and employment contracts before trusting them. It analyzes job offer text and detects common scam indicators using AI-driven logic, providing a clear risk assessment and trust score.
 
-## Problem
-Overseas job scams are increasing rapidly. Many victims lose money due to fake visa promises, urgent hiring tactics, and hidden fees. Most people do not have legal knowledge to understand contract red flags.
+---
 
-## Solution
-FairMove AI allows users to paste job offer text and receive:
-- A risk assessment (High / Medium / Low)
-- Trust score
-- Scam indicators (financial, visa, urgency)
-- Clear AI-based explanation and recommendations
+## 🌍 Problem
 
-## Key Features
-- Scam risk detection using rule-based AI logic
-- Trust score and confidence level
-- Detailed explanation of detected red flags
-- Simple, clean interface for non-technical users
+Overseas job scams are increasing rapidly. Many people lose money and personal documents due to:
+- Fake visa guarantees
+- Registration or processing fees
+- Urgency pressure tactics
+- No proper interview process
 
-## Tech Stack
-- Python (Flask)
-- HTML, CSS, JavaScript
+There is no simple tool for common users to quickly verify such offers.
 
-## How to Run Locally
-1. Install Flask  
-   ```bash
-   pip install flask
-2. Run the app
+---
+
+## 💡 Solution
+
+FairMove AI allows users to paste overseas job offer text and instantly receive:
+- Risk classification (Low / High)
+- Trust score out of 100
+- Scam indicators detected
+- Clear AI-based explanation
+
+This helps users make safer decisions before paying fees or sharing documents.
+
+---
+
+## ✨ Features
+
+- 🔍 AI-based scam detection
+- 📊 Trust score system
+- 🚨 Risk classification (Low / High)
+- 🧠 Explainable AI output
+- 🎨 Clean and simple UI
+- ⚡ Fast analysis
+
+---
+
+## 🛠️ Tech Stack
+
+- Frontend: HTML, CSS  
+- Backend: Python (Flask)  
+- Logic: Rule-based AI analysis  
+- Tools: VS Code, Git, GitHub  
+
+---
+
+## 🧪 How It Works
+
+1. User pastes overseas job offer text  
+2. Backend scans for scam keywords and patterns  
+3. Risk score is calculated  
+4. Results are shown with explanation  
+
+---
+
+## 🚀 Run Locally
+
+```bash
+git clone https://github.com/Vinayak-123-jpj/fairmove-ai.git
+cd fairmove-ai
 python app.py
-3. Open browser
-http://127.0.0.1:5000
-Disclaimer
 
-FairMove AI provides risk indicators based on common scam patterns. It does not replace legal or government verification. Users should always verify job offers through official sources.
